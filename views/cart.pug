@@ -1,0 +1,36 @@
+extends layout
+block content
+    .container
+        .text-primary
+            p#cartcount=cartcount + " In your cart"
+        table.table.table-bordered.table-striped
+            thead
+                tr
+                    th Product Name
+                    th Quantity
+                    th Update
+                    th Delate
+            tbody
+                each item in cart
+                    tr
+                        td=item.Name
+                            if (item.customizations) 
+                                each topping in item.customizations
+                                    li=topping.topping
+                        td
+                            input(type='text' value=item.quantity )
+                        td
+                            button.btn.btn-primary(onclick="Update("+item.CartId+",this)") Update
+                        
+                        td 
+                            button.btn.btn-primary(onclick="Delete("+item.CartId+",this)") Delete
+               
+                button.btn.btn-danger(onclick="DeleteCart()") Empty Cart 
+                a.btn.btn-warning.btn(href="/users/logout") Logout
+                a.btn.btn-info.btn(href="/menu") Menu
+
+
+
+                                    
+            
+                

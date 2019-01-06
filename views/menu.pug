@@ -1,0 +1,54 @@
+extends layout
+block content
+  .container
+  nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
+    #navbarSupportedContent.collapse.navbar-collapse
+       ul.navbar-nav.mr-auto
+        li.nav-item
+          p Menu
+        .col-md-6
+        li.nav-item
+          a(href='/cart') Cart：
+        li.nav-item
+          p#cartcount=cartcount
+        .col-md-6
+        li.nav-item
+        .text-secondary
+          p=user.Username
+          .col-sm-6
+        li.nav-item
+          a.btn.btn-warning.btn-sm(href="/users/logout") Logout
+        li.nav-item
+          a.btn.btn-warning.btn-sm(href="/")  Main Page
+        
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th Product Name
+        th picture
+        th Description
+        th Add cart
+    tbody
+      each product in items 
+        tr 
+          td=product.Name
+          td
+            img(src=product.Img)
+          td=product.Description  
+          td
+            button.btn.btn-primary(onclick="Addtocart("+product.ID+")") Add cart
+  
+    .card(style='width:18rem;')
+      .card-body
+        p Customize your!
+          each topping in customization
+            li
+              label=topping.Topping
+              input(type='checkbox' value=topping.ID)
+          button.btn.btn-primary(onclick="Customize()") Add to Cart
+          
+      
+          
+
+      
+    

@@ -1,0 +1,28 @@
+link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+
+block content
+    .container
+        h1 User Registration
+        if errors
+            each error in errors
+                .alert.alert-danger= error
+        form(method="post")
+            .form-group
+                label(for="username") Username
+                input#username.form-control(name="username")
+            .form-group
+                label(for="name") Name
+                input#username.form-control(name="name")
+            .form-group
+                label(for="address") Address
+                input#username.form-control(name="address")
+            .form-group
+                label(for="email") Email
+                input#email.form-control(name="email")
+            .form-group
+                label(for="password") Password
+                input#password.form-control(type="password", name="password")
+            .form-group
+                label(for="passwordConf") Password Confirmation
+                input#passwordConf.form-control(type="password", name="passwordConf")
+            button.btn.btn-primary(type="submit") Submit

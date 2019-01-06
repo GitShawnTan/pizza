@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container
+  main.inner.cover(role='main')
+    h1.cover-heading Welcome Our pizza shop.
+    p.lead
+    a.btn.btn-info.btn-sm(href="/menu") Our menu
+    if(user)
+      a.btn.btn-warning.btn-sm(href="/users/logout") Logout
+      p="Hey! " + user.Name
+    else
+      a.btn.btn-warning(href="/users/login") Login
+    
+
+      
+
+    .row
+      .col-sm-6
+        .card
+          img.card-img-top(src='/images/pizza2.jpg', alt='Card image cap')
+          .card-body
+            h5.card-title Margrita pizza
+            p.card-text Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella fior di latte, fresh basil, salt and extra-virgin olive oil
+      .col-sm-6
+        .card
+          img.card-img-top(src='/images/pizza2.jpg', alt='Card image cap')
+          .card-body
+            h5.card-title Cheese Pizza
+            p.card-text An uncooked Neapolitan pizza on a metal peel, ready for the oven
+
